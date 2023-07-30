@@ -1,0 +1,192 @@
+" --- Prerequisites ---
+" - `:actionlist` to see all actions
+" - `:action ProductivityFeatures` to see more features
+" - Plugins to install
+"   - IdeaVim
+"   - AceJump
+"   - Surround
+"   - Multiple Cursors
+"   - String Manipulation
+"   - AI Code Assistant
+"   - Github Copilot
+"   - Translation Plugin (the popular one dk the name)
+"   - performancePlugin
+
+let mapleader=" "
+
+"" --- Plugins ---
+set surround
+set multiple-cursors
+set which-key
+"" set easymotion
+
+"" --- IDEA-Vim ---
+set ideastatusicon=gray " Show gray icon when in vim mode (default is greenish blue gradient)
+
+"" --- Actions ---
+" NOTE: <Action> is a placeholder for the action name
+
+" Tab Navigation "
+map <Tab> <Action>(NextTab)
+map <S-Tab> <Action>(PreviousTab)
+
+" Code Style "
+" Formatting code "
+map <leader>fm <Action>(ReformatCode)
+map <Leader>ca <Action>(ShowIntentionActions)
+
+" Commenting "
+map gc <Action>(CommentByLineComment)<ESC>
+
+"" map <Leader>cd <Action>(ShowDoc) "" Future use (maybe)
+"" map <Leader>cf <Action>(FindUsages)
+"" map <Leader>ch <Action>(GotoSuper)
+
+" CodeGen "
+map <Leader>gg <Action>(Generate)
+map <Leader>ii <Action>(Inline)" Inline (Code)
+" map <Leader>gp <Action>(GenerateCopyright)
+
+" Whisper AI my credit card number "
+" NOTE: Nicest "
+map <Leader>ai <Action>(ActivateAIAssistToolWindow)
+
+" Focus file tree (project)
+map <Leader>e <Action>(ActivateProjectToolWindow)
+map <Leader>n <Action>(CloseProjectToolWindow)
+map <Leader>of <Action>(OpenFile)" Open file
+map <Leader>nf <Action>(NewScratchFile)" New file
+
+" Book marks "
+map <Leader>bc <Action>(Bookmarks)"- General purpose
+map <Leader>bm <Action>(ActivateBookmarksToolWindow)"- Tool window
+map <Leader>bk <Action>(Bookmarks.Toggle)"- Create a bookmark
+map <Leader>ba <Action>(ShowBookmarks)"- Show all bookmarks
+
+" REPL "
+map <Leader>rr <Action>(Run)
+map <Leader>rm <Action>(RunMenu)
+map <Leader>rt <Action>(Debug)
+map <Leader>br <Action>(ToggleLineBreakpoint)" Add breakpoint (Debugging)
+map <Leader>su <Action>(ShowUsages)" Show Usage
+map <Leader>se <Action>(ShowErrorDescription)" Show Error
+
+" Find "
+" ALSO: Ctrl + Shift + F "
+map <Leader>fa <Action>(ActivateFindToolWindow)
+map <Leader>ff <Action>(Find)
+map <Leader>ft <Action>(TextSearchAction)
+map <Leader>fo <Action>(GotoFile)
+map <Leader>fc <Action>(GotoClass)
+map <Leader>go <Action>(EditorPopupMenu.GoTo)
+map <Leader>f <Action>(FindInPath)" to search in project
+map <Leader>fw <Action>(AceAction)" Go to a word in the current file (ace jump) aka lightning
+
+" String Manupilation "
+" - All Options: "
+"           StringManipulation.Group.Align
+"           StringManipulation.Group.EncodeDecode
+"           StringManipulation.Group.EscapeC" Code Menu "
+"           StringManipulation.Group.EscapeUnescapemap <Leader>co <Action>(CodeMenu)
+"           StringManipulation.Group.Filter
+"           StringManipulation.Group.IncrementDecrement" Git "
+"           StringManipulation.Group.Mainmap <Leader>gt <Action>(Git.GitToolWindow)
+"           StringManipulation.Group.Misc
+"           StringManipulation.Group.Sort" focus github copilot panel
+"           StringManipulation.Group.SwitchCasemap <Leader>gh <Action>(Activategithub.copilotToolWindowToolWindow) " NOTE This conflicts with git menu"
+"           StringManipulation.Group.UnescapeC
+map <Leader>sp <Action>(StringManipulation.Group.Main) "Main Popup
+map <Leader>sa <Action>(StringManipulation.Group.Align)
+map <Leader>sr <Action>(StringManipulation.Group.Misc)
+map <Leader>so <Action>(StringManipulation.Group.Sort) " Useful for imports, Enums, Structs etc.
+map <Leader>sm <Action>(StringManipulation.Group.SwitchCase) " PascalCase <-> camelCase <-> snake_case ...
+
+" Power Users "
+" Performance Testing Tools "
+map <Leader>pt <Action>(Performance.ActivityMonitor)
+" Scripting the IDE "
+map <Leader>sc <Action>(performancePlugin.OpenIndexingDiagnosticsAction)
+
+" Code Jumps "
+map <Leader>ne <Action>(GotoNextError)" Go To Next Error
+map <Leader>gd <Action>(GotoDeclaration)" Go To Declaration of the thing under the cursor
+map <Leader>hh <Action>(HierarchyGroup)" HierarchyGroup (dependency tree)
+
+" Parameter info"
+map <Leader>pi <Action>(ParameterInfo)
+
+" Inspect Code "
+" NOTE: Very nice feature to have
+map <Leader>ic <Action>(InspectCode)
+
+" map <Leader>gs <Action>(Floating.CodeToolbar) " Above solutions are more concise
+map <Leader>fg <Action>(FoldingGroup)
+map <Leader>fs <Action>(MainToolbarPopupActions)
+
+" Rename "
+map <Leader>rn <Action>(RenameFile)
+
+map <Leader>mn <Action>(MainToolBar)
+
+" Vim "
+map <Leader>va <Action>(VimActions)
+
+" GUI "
+" toggle bottom bar
+map <Leader>tb <Action>(ViewStatusBar)
+map <Leader>td <Action>(ToggleDistractionFreeMode)
+map <Leader>tc <Action>(ToggleCompactMode)
+
+" Translate "
+map <Leader>tt <Action>(TranslationGroup)
+
+" Refactor "
+
+map <Leader>ra <Action>(RenameElement)
+map <Leader>rr <Action>(Refactorings.QuickListPopupAction)
+
+" Analyzer panel "
+" NOTE: Noice feature"
+map <Leader>aa <Action>(AnalyzeActions)
+
+
+" General "
+" - General purpose popups"
+map <Leader>pp <Action>(ToolWindowsGroup)
+map <Leader>ge <Action>(EditorPopupMenu) " Equivalent with right click! (Vim btw.)
+" map <Leader>g2 <Action>(EditorPopupMenu.Run)
+" map <Leader>g3 <Action>(EditorPopupMenu1.FindRefactor)
+
+" Git "
+" - Git menu "
+map <Leader>gh <Action>(Git.Menu)
+map <Leader>gm <Action>(Git.MainMenu)
+map <Leader>cg <Action>(Github.Create.Gist)" Create Gist
+
+" - TODO panel "
+map <Leader>to <Action>(ActivateTODOToolWindow)
+
+" - Task Manager "
+" NOTE: Super useful"
+map <Leader>ts <Action>(tasks.goto)
+
+" Other "
+" Color Picker "
+map <Leader>cp <Action>(ShowColorPicker)
+
+" Emoji Picker "
+map <Leader>ew <Action>(EmojiPicker.Open) " Need that for personal reasons
+
+" Terminal "
+map <Leader>v <Action>(ActivateTerminalToolWindow)" leader + v to open terminal
+
+" Package Manager "
+map <Leader>pkg <Action>(ActivateVcpkgToolWindow)
+
+" Theme Manager "
+map <Leader>th <Action>(ChangeColorScheme)
+" map <Leader>cd <Action>(ChangeCodeStyleScheme) " Didn't find it useful?"
+
+" Markdown Tools "
+
+map <Leader>md <Action>(Markdown.Tools)

@@ -1,5 +1,7 @@
 # `.IdeaVIMrc`
 
+![image](https://github.com/utfeight/dotideavimrc/assets/101834410/25237502-6d42-4a70-ab0d-f9b2412ecc0f)
+
 I have configured Vim keybindings for CLion. Including **AI powered code
 actions**, **Code Analyzer Tools**, **Easy Navigation**, **General Popups**
 
